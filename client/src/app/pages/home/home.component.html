@@ -1,33 +1,32 @@
-<div class="row">
+<div class="row dashboard">
   <div class="col-xl-3 panel">
     <h2>
       Добавить файлы
     </h2>
     <br>
-    <input  (change)="fileChange($event)" multiple="multiple" type="file"  class="custom-file-input"  id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01">  
-    <button  class="input-group-text upload"  (click)="upload()"  id="btnUpload">Загрузить</button> 
+    <input (change)="fileChange($event)" multiple="multiple" type="file" class="button button__open">  
+    <button class="button button__upload" (click)="upload()" >Загрузить</button> 
   </div>
-  <div class="col-xl-9">
-    <div class="row">
+  <div class="col-xl-9 table">
+    <div class="row table__head">
       <div class="col-xl-5">
-        Имя
+        <span>Имя</span>                    
       </div>
       <div class="col-xl-2 text-right">
-        Размер
+        <span>Размер</span> 
       </div>
       <div class="col-xl-2">
-        Дата изменения
+        <span>Дата изменения</span>
       </div>
       <div class="col-xl-3">
-
       </div>
     </div>
-    <div class="row" *ngIf="emptyFiles">
+    <div class="row table__empty" *ngIf="emptyFiles">
       <div class="col-xl text-center">
-        Тут еще нет файлов, добавь первый
+        <p class="table__empty-title">Тут еще нет файлов</p>
       </div>
     </div>
-    <div class="row" *ngFor="let file of files">
+    <div class="row table__row" *ngFor="let file of files">
       <div class="col-xl-5">
         {{ file.name }}
       </div>
@@ -37,9 +36,9 @@
       <div class="col-xl-2">
         {{ file.modification | date: 'dd.MM.yyyy (hh:mm)' }}
       </div>
-      <div class="col-xl-3">
-        <button (click)="open(file.path, file.name, file.img)">Open</button>
-        <button (click)="remove(file.name)">remove</button>
+      <div class="col-xl-3 button__group">
+        <button (click)="open(file.path, file.name, file.img)" class="button button__open">Просмотр</button>
+        <button (click)="remove(file.name)" class="button button__remove">Удалить</button>
       </div>
     </div>
   </div>  

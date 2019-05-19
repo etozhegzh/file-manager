@@ -25,7 +25,9 @@ export class ModalComponent implements OnInit {
   }
 
   getTextFile(name) {
-    this.dataService.getTextFile(this.name).subscribe(data => this.text = data);
+    this.dataService.getTextFile(this.name).subscribe(data => {
+      this.text = data; 
+    });
   }
 
 }

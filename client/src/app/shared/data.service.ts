@@ -24,6 +24,6 @@ export class DataService {
   }
 
   getTextFile(name) {
-    return this.http.get('http://localhost:3000/' + name, { responseType: 'text', headers: { "Content-Type": "charset=UTF-8"}});
+    return this.http.get('http://localhost:3000/' + name, { responseType: 'text' });
   }
 }
